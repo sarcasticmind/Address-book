@@ -1,0 +1,55 @@
+<div class="login">
+  <form class="loginBox" [formGroup]="regValidation">
+    <input
+      type="text"
+      placeholder="first name"
+      class="loginInput"
+      formControlName="fName"
+      [(ngModel)]="regService.formData.fName"
+    />
+    <div
+    class="form-text text-danger"
+    *ngIf="regValidation.controls.fName.errors"
+  >
+    {{ regValidation.controls.fName.errors | jsonstring }} error
+  </div>
+    <input
+      type="text"
+      placeholder="last name"
+      class="loginInput"
+      formControlName="lName"
+      [(ngModel)]="regService.formData.lName"
+    />
+    <input
+      type="email"
+      placeholder="Email"
+      class="loginInput"
+      formControlName="email"
+      [(ngModel)]="regService.formData.email"
+    />
+    <input
+      type="password"
+      placeholder="Password"
+      class="loginInput"
+      formControlName="password"
+      [(ngModel)]="regService.formData.password"
+    />
+    <input
+      type="password"
+      placeholder="Confirm Password"
+      class="loginInput"
+      formControlName= "confirmPassword"
+    />
+    <button
+      class="loginBtn"
+      [disabled]="!regValidation.valid"
+      (click)="register()"
+    >
+      Sign up
+    </button>
+    <hr />
+    <button class="loginRegisterBtn" routerLink="/">
+      Login to your account
+    </button>
+  </form>
+</div>

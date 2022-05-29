@@ -1,0 +1,37 @@
+.cont {
+  background-color: white;
+  width: 80vw;
+  margin-inline: auto;
+  padding: 30px;
+}
+.info{
+  display: flex;
+  justify-content: space-around;
+  /* width: 100%; */
+}
+.submit{
+  width: 30%;
+  margin-inline: auto;
+  text-align: end;
+}
+.formDiv{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+@media screen and (max-width: 767px) and (min-width: 520px) {
+  .formDiv{
+    display: block;
+  }
+  .personal , .second {
+    width: 80% !important;
+  }
+}
+.personal , .second{
+  width: 40%;
+}
+.personal input , .second input{
+width: 90%;
+font-size: 1rem;
+}
+

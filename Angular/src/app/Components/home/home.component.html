@@ -1,0 +1,39 @@
+<div class="action">
+  <div class="di">
+    <a class="btn btn-outline-danger" href="/add"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
+  </div>
+  <form class="d-flex">
+    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-danger" type="submit">Search</button>
+  </form>
+</div>
+
+<div class="cont">
+  <div class="container mt-5 mb-5">
+    <div class="holder" *ngFor="let address of addresses">
+      <div class="pic">
+        <img  src="assets/images/male.png" />
+      </div>
+      <div class="info">
+        <div class="topInfo">
+          {{ address.fName +' '+ address.lName}}
+        </div>
+        <div class="bottomInfo">
+          <div class="mob">(+02) {{ address.mobile }}</div>
+          <div class="addr"> <i class="fa fa-map-marker" aria-hidden="true"></i> &nbsp;{{ address.address }}</div>
+        </div>
+      </div>
+      <div class="act">
+        <button routerLink="/details/{{ address.id }}">
+          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          </button>
+        <button routerLink="/add" (click)="getData(address)">
+        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>
+        <button (click)="delete(address.id)">
+          <i class="fa fa-trash" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

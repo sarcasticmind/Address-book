@@ -1,0 +1,20 @@
+<div class="login">
+
+          <form class="loginBox" [formGroup]="form">
+              <input type="email" placeholder="Email" class="loginInput"
+              formControlName="email"
+              [(ngModel)]="loginService.formData.email" />
+              <input type="password" placeholder="Password" class="loginInput"
+              formControlName="password"
+              [(ngModel)]="loginService.formData.password" />
+              <button class="loginBtn"
+              class="loginBtn"
+              [disabled]="!form.valid"
+              (click)="submitForm()"
+              >Login</button>
+              <span class="loginForgot">Forgot your password?</span>
+              <button class="loginRegisterBtn"
+              routerLink="/register"
+              >Create a new account</button>
+          </form>
+</div>

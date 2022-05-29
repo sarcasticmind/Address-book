@@ -1,0 +1,18 @@
+<div class="navy">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <div>
+      <a class="navbar-brand" routerLink="/home">Address Book</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <a style="cursor: pointer" class="navbar-brand" (click)="clear($event)">
+        Logout
+      </a>
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-danger" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>

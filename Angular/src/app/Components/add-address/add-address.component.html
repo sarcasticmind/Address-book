@@ -1,0 +1,206 @@
+<div class="cont">
+      <div class="col-lg-12 col-md-12 col-12 mt-5 mb-5">
+        <form #form="ngForm" [formGroup]="addValidation">
+          <div class="formDiv">
+            <div class="personal">
+              <i class="fa fa-user"></i> Person Details
+              <hr />
+              <input type="hidden" name="id" [value]="addService.formData.id" />
+              <!-- ************ first  name ***************  -->
+              <div class="form-group mb-2">
+                <label class="form-label">First Name</label>
+                <input
+                  [(ngModel)]="addService.formData.fName"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="fName"
+                  placeholder="can't be less than 3 charchters"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.fName.errors"
+              >
+                {{ addValidation.controls.fName.errors | jsonstring }} error
+              </div>
+              <!-- ************ last name ***************  -->
+              <div class="form-group mb-2">
+                <label class="form-label">Last Name</label>
+                <input
+                  [(ngModel)]="addService.formData.lName"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="lName"
+                  placeholder="can't be less than 3 charchters"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.lName.errors"
+              >
+                {{ addValidation.controls.lName.errors | jsonstring }} error
+              </div>
+              <!-- ************ Job Title *************** -->
+              <div class="form-group mb-2">
+                <label class="form-label">Job title</label> &nbsp;
+                <select
+                  formControlName="job"
+                  [(ngModel)]="addService.formData.job_id"
+                >
+                  <option id="" *ngFor="let job of jobs" [value]="job.id">
+                    {{ job.name }}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.fName.errors"
+              >
+                {{ addValidation.controls.fName.errors | jsonstring }} error
+              </div>
+              <!-- ************ Department *************** -->
+              <div class="form-group mb-2">
+                <label class="form-label">Department</label> &nbsp;&nbsp;&nbsp;
+                <select
+                  formControlName="dept"
+                  [(ngModel)]="addService.formData.dept_id"
+                >
+                  <option id="" *ngFor="let dept of depts" [value]="dept.id">
+                    {{ dept.name }}
+                  </option>
+                </select>
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.fName.errors"
+              >
+                {{ addValidation.controls.fName.errors | jsonstring }} error
+              </div>
+              <!-- ************ Phone number ***************  -->
+              <div class="form-group mb-2">
+                <label class="form-label">Phone number</label>
+                <input
+                  [(ngModel)]="addService.formData.mobile"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="mobile"
+                />
+              </div>
+              <small class="form-text text-muted"
+                >enter a valid Egyptian mobile phone<br />
+              </small>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.mobile.errors"
+              >
+                {{ addValidation.controls.mobile.errors | jsonstring }} error
+              </div>
+              <div class="text-danger">{{ phoneErrorMsg }}</div>
+            </div>
+              <div class="second">
+
+              <!-- ************ DOB ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Date of birth</label>
+                <input
+                  [(ngModel)]="addService.formData.birthDate"
+                  type="date"
+                  class="form-control form-control-lg"
+                  formControlName="birthDate"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.birthDate.errors"
+              >
+                {{ addValidation.controls.birthDate.errors | jsonstring }} error
+              </div>
+              <!-- ************ address ***************  -->
+              <div class="form-group mb-2">
+                <label class="form-label">Address</label>
+                <input
+                  [(ngModel)]="addService.formData.address"
+                  type="text"
+                  class="form-control form-control-lg"
+                  formControlName="address"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.address.errors"
+              >
+                {{ addValidation.controls.address.errors | jsonstring }} error
+              </div>
+              <!-- ************ email ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Email</label>
+                <input
+                  [(ngModel)]="addService.formData.email"
+                  type="email"
+                  class="form-control form-control-lg"
+                  formControlName="email"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.email.errors"
+              >
+                {{ addValidation.controls.email.errors | jsonstring }} error
+              </div>
+              <div class="text-danger">{{ mailErrorMsg }}</div>
+              <!-- ************ Photo ***************  -->
+
+              <app-upload></app-upload>
+              <div class="form-group mb-2">
+                <label class="form-label">Photo</label>
+                <input
+                  [(ngModel)]="addService.formData.photo"
+                  type="file"
+                  class="form-control form-control-lg"
+                  formControlName="photo"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.photo.errors"
+              >
+                {{ addValidation.controls.photo.errors | jsonstring }} error
+              </div>
+              <!-- ************ age ***************  -->
+
+              <div class="form-group mb-2">
+                <label class="form-label">Age</label>
+                <input
+                  [(ngModel)]="addService.formData.age"
+                  type="number"
+                  class="form-control form-control-lg"
+                  formControlName="age"
+                />
+              </div>
+              <div
+                class="form-text text-danger"
+                *ngIf="addValidation.controls.age.errors"
+              >
+                {{ addValidation.controls.age.errors | jsonstring }} error
+              </div>
+              <!-- **************************************** -->
+            </div>
+          </div>
+          <br>
+          <div class="form-group mb-2 submit">
+            <button
+              [disabled]="!addValidation.valid"
+              class="btn btn-primary"
+              type="submit"
+              (click)="onSubmit()"
+            >
+              Add
+            </button>
+            &nbsp;
+            <button class="btn btn-danger" routerLink="/home">Cancel</button>
+          </div>
+        </form>
+      </div>
+</div>
